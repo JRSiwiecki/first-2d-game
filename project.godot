@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="First 2D Game"
+run/main_scene="res://src/Actors/Player.tscn"
 config/icon="res://icon.png"
 
 [gui]
