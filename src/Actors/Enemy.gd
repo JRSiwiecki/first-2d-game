@@ -2,6 +2,7 @@ extends "res://src/Actors/Actor.gd"
 
 # called on game start
 func _ready():
+	set_physics_process(false)
 	_velocity.x = -speed.x
 
 func _physics_process(delta):
