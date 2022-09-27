@@ -12,6 +12,7 @@ func _physics_process(_delta):
 	
 	var is_jump_interrupted := Input.is_action_just_released("jump") and _velocity.y < 0.0
 	var direction := get_direction()
+	check_sprint()
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 
@@ -43,6 +44,14 @@ func calculate_move_velocity(
 	return out
 
 func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vector2:
+	
 	var out := linear_velocity
 	out.y = -impulse
 	return out
+
+func check_sprint():
+	
+	if (Input.is_action_just_pressed("Sprint")):
+		speed.x *= 2.0
+	elif (Input.is_action_just_released("Sprint")):
+		speed.x /= 2.0
